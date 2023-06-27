@@ -122,7 +122,7 @@ bool Arduino_ESP32LCD16::begin(int32_t speed, int8_t dataMode)
   _fast_wait = (wait < 0) ? 0 : wait;
 
   lcd_cam_lcd_clock_reg_t lcd_clock;
-  lcd_clock.lcd_clkcnt_n = std::max(1u, clkcnt - 1);
+  lcd_clock.lcd_clkcnt_n = std::max((int32_t)1u, (int32_t)clkcnt - 1);
   lcd_clock.lcd_clk_equ_sysclk = (clkcnt == 1);
   lcd_clock.lcd_ck_idle_edge = true;
   lcd_clock.lcd_ck_out_edge = false;
